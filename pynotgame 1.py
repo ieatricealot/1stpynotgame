@@ -2,7 +2,7 @@ import pygame
 
 pygame.init()
 screen = pygame.display.set_mode((1000, 600))
-pygame.display.set_caption('F1 con Sandreke')
+pygame.display.set_caption('Neil thing')
 clock = pygame.time.Clock()
 
 # 1. Load the image
@@ -19,7 +19,7 @@ width = carImg.get_width()
 height = carImg.get_height()
 
 # Scale down to 50% of the original size
-new_size = (int(width * 0.5), int(height * 0.5))
+new_size = (int(width * 0.1), int(height * 0.1))
 carImg = pygame.transform.scale(carImg, new_size)
 
 running = True
@@ -34,6 +34,19 @@ while running:
     # 4. Draw Neil at his coordinates
     screen.blit(carImg, (neil_x, neil_y))
 
+    keys = pygame.key.get_pressed()  # This will give us a dictonary where each key has a value of 1 or 0. Where 1 is pressed and 0 is not pressed.
+
+    if keys[pygame.K_LEFT]: # We can check if a key is pressed like this
+        neil_x -= 5
+
+    if keys[pygame.K_RIGHT]:
+        neil_x += 5
+
+    if keys[pygame.K_UP]:
+        neil_y -= 5
+
+    if keys[pygame.K_DOWN]:
+        neil_y += 5
     # 5. Refresh the screen
     pygame.display.flip()
 
