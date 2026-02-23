@@ -36,16 +36,16 @@ while running:
 
     keys = pygame.key.get_pressed()  # This will give us a dictonary where each key has a value of 1 or 0. Where 1 is pressed and 0 is not pressed.
 
-    if keys[pygame.K_LEFT]: # We can check if a key is pressed like this
+    if keys[pygame.K_LEFT] and neil_x >= 0: # We can check if a key is pressed like this
         neil_x -= 5
 
-    if keys[pygame.K_RIGHT]:
+    if keys[pygame.K_RIGHT] and neil_x <= 900:
         neil_x += 5
 
-    if keys[pygame.K_UP]:
+    if keys[pygame.K_UP] and neil_y >= 0:
         neil_y -= 5
 
-    if keys[pygame.K_DOWN]:
+    if keys[pygame.K_DOWN] and neil_y <=500:
         neil_y += 5
     # 5. Refresh the screen
     pygame.display.flip()
